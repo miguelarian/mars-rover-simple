@@ -2,10 +2,9 @@ package com.miguelvela;
 
 public class MarsRover
 {
-    private static final String INITIAL_POSITION = "0:0";
-
+    private int XCoordinate = 0;
+    private int YCoordinate = 0;
     private char direction = 'N';
-
 
     public String Execute(String command) {
 
@@ -20,7 +19,7 @@ public class MarsRover
             }
         }
 
-        return INITIAL_POSITION + ":" + this.direction;
+        return this.XCoordinate + ":" + this.YCoordinate + ":" + this.direction;
     }
 
     private char rotateLeft(char currentPosition) {
