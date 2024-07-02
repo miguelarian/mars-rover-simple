@@ -35,6 +35,20 @@ public class MarsRoverTests {
     }
 
     @Test
+    public void Execute_FromInitialRotate270Left_ReturnsSouth() {
+        MarsRover rover = new MarsRover();
+        String result = rover.Execute("LLL");
+        assertEquals("0:0:E", result);
+    }
+
+    @Test
+    public void Execute_FromInitialRotate360Left_ReturnsInitialDirection() {
+        MarsRover rover = new MarsRover();
+        String result = rover.Execute("LLLL");
+        assertEquals("0:0:N", result);
+    }
+
+    @Test
     public void Execute_FromInitialRotate180Right_ReturnsSouth() {
         MarsRover rover = new MarsRover();
         String result = rover.Execute("RR");
