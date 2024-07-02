@@ -12,32 +12,50 @@ public class MarsRover
         for (char action : command.toCharArray()) {
 
             if (action == 'R') {
-                this.direction = rotateRight(this.direction, action);
+                this.direction = rotateRight(this.direction);
             }
 
             if (action == 'L') {
-                return INITIAL_POSITION + ":W";
+                this.direction = rotateLeft(this.direction);
             }
         }
 
         return INITIAL_POSITION + ":" + this.direction;
     }
 
-    private char rotateRight(char currentPosition, char direction) throws IllegalArgumentException {
-        if (currentPosition == 'N' && direction == 'R') {
-            return 'E';
-        }
-        else if(currentPosition == 'E' && direction == 'R') {
-            return 'S';
-        }
-        else if(currentPosition == 'S' && direction == 'R') {
+    private char rotateLeft(char currentPosition) {
+        if (currentPosition == 'N') {
             return 'W';
         }
-        else if(currentPosition == 'W' && direction == 'R') {
+        else if(currentPosition == 'W') {
+            return 'S';
+        }
+        else if(currentPosition == 'S') {
+            return 'E';
+        }
+        else if(currentPosition == 'E') {
             return 'N';
         }
         else {
-            throw new IllegalArgumentException("Invalid direction");
+            throw new IllegalArgumentException("Invalid rotation");
+        }
+    }
+
+    private char rotateRight(char currentPosition) throws IllegalArgumentException {
+        if (currentPosition == 'N') {
+            return 'E';
+        }
+        else if(currentPosition == 'E') {
+            return 'S';
+        }
+        else if(currentPosition == 'S') {
+            return 'W';
+        }
+        else if(currentPosition == 'W') {
+            return 'N';
+        }
+        else {
+            throw new IllegalArgumentException("Invalid rotation");
         }
     }
 }
