@@ -19,7 +19,7 @@ public class MarsRover
             }
         }
 
-        return this.XCoordinate + ":" + this.YCoordinate + ":" + this.direction;
+        return this.printPosition();
     }
 
     private char rotateLeft(char currentPosition) {
@@ -56,5 +56,9 @@ public class MarsRover
         else {
             throw new IllegalArgumentException("Invalid rotation");
         }
+    }
+
+    private String printPosition() {
+        return this.XCoordinate + ":" + this.YCoordinate + ":" + this.direction;
     }
 }
