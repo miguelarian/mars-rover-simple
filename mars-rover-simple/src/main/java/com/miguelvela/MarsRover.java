@@ -2,9 +2,25 @@ package com.miguelvela;
 
 public class MarsRover
 {
-    private int XCoordinate = 0;
-    private int YCoordinate = 0;
-    private char direction = 'N';
+    private final int INITIAL_X_COORDINATE = 0;
+    private final int INITIAL_Y_COORDINATE = 0;
+    private final int INITIAL_DIRECTION = 'N';
+
+    private int XCoordinate;
+    private int YCoordinate;
+    private char direction;
+
+    public MarsRover() {
+        this.XCoordinate = INITIAL_X_COORDINATE;
+        this.YCoordinate = INITIAL_Y_COORDINATE;
+        this.direction = INITIAL_DIRECTION;
+    }
+
+    public MarsRover(int XCoordinate, int YCoordinate, char direction) {
+        this.XCoordinate = XCoordinate;
+        this.YCoordinate = YCoordinate;
+        this.direction = direction;
+    }
 
     public String Execute(String command) {
 
