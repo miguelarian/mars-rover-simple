@@ -25,7 +25,6 @@ public class MarsRover
     public String Execute(String command) {
 
         for (char action : command.toCharArray()) {
-
             switch (action) {
                 case 'R' -> this.direction = rotateRight(this.direction);
                 case 'L' -> this.direction = rotateLeft(this.direction);
@@ -33,8 +32,7 @@ public class MarsRover
                 default -> throw new IllegalArgumentException("Invalid action");
             }
         }
-
-        return this.printPosition();
+        return this.toString();
     }
 
     private void move() {
@@ -91,7 +89,8 @@ public class MarsRover
         }
     }
 
-    private String printPosition() {
+    @Override
+    public String toString() {
         return this.XCoordinate + ":" + this.YCoordinate + ":" + this.direction;
     }
 }
