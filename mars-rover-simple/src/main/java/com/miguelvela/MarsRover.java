@@ -4,7 +4,7 @@ public class MarsRover
 {
     private final int INITIAL_X_COORDINATE = 0;
     private final int INITIAL_Y_COORDINATE = 0;
-    private final int INITIAL_DIRECTION = 'N';
+    private final int INITIAL_DIRECTION = NORTH;
 
     public static final char NORTH = 'N';
     public static final char SOUTH = 'S';
