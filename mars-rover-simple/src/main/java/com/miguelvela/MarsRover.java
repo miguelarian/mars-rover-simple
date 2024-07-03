@@ -36,16 +36,16 @@ public class MarsRover
         return this.toString();
     }
 
-    @Override
-    public String toString() {
-        return this.position + ":" + this.direction;
-    }
-
     public int getXCoordinate() {
         return this.position.getX();
     }
 
     public int getYCoordinate() {
         return this.position.getY();
+    }
+
+    @Override
+    public String toString() {
+        return this.position + ":" + this.direction;
     }
 }
