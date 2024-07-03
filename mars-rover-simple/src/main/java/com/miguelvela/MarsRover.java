@@ -7,9 +7,9 @@ public class MarsRover
     private final int INITIAL_DIRECTION = 'N';
 
     public static final char NORTH = 'N';
-    public static char SOUTH = 'S';
-    public static char EAST = 'E';
-    public static char WEST = 'W';
+    public static final char SOUTH = 'S';
+    public static final char EAST = 'E';
+    public static final char WEST = 'W';
 
     private enum Action {
         ROTATE_RIGHT('R'),
