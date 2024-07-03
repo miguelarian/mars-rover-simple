@@ -65,8 +65,8 @@ public class MarsRover
         for (char inputAction : command.toCharArray()) {
             Action action = Action.fromValue(inputAction);
             switch (action) {
-                case ROTATE_RIGHT -> this.direction = rotateRight(this.direction);
-                case ROTATE_LEFT -> this.direction = rotateLeft(this.direction);
+                case ROTATE_RIGHT -> rotateRight(this.direction);
+                case ROTATE_LEFT -> rotateLeft(this.direction);
                 case MOVE -> move();
                 default -> throw new IllegalArgumentException("Invalid action");
             }
@@ -83,39 +83,23 @@ public class MarsRover
         }
     }
 
-    private char rotateLeft(char currentDirection) {
-        if (currentDirection == NORTH) {
-            return WEST;
-        }
-        else if(currentDirection == WEST) {
-            return SOUTH;
-        }
-        else if(currentDirection == SOUTH) {
-            return EAST;
-        }
-        else if(currentDirection == EAST) {
-            return NORTH;
-        }
-        else {
-            throw new IllegalArgumentException("Invalid rotation");
+    private void rotateLeft(char currentDirection) {
+        switch (currentDirection) {
+            case NORTH -> this.direction = WEST;
+            case WEST -> this.direction = SOUTH;
+            case SOUTH -> this.direction = EAST;
+            case EAST -> this.direction = NORTH;
+            default -> throw new IllegalArgumentException("Invalid rotation");
         }
     }
 
-    private char rotateRight(char currentDirection) throws IllegalArgumentException {
-        if (currentDirection == NORTH) {
-            return EAST;
-        }
-        else if(currentDirection == EAST) {
-            return SOUTH;
-        }
-        else if(currentDirection == SOUTH) {
-            return WEST;
-        }
-        else if(currentDirection == WEST) {
-            return NORTH;
-        }
-        else {
-            throw new IllegalArgumentException("Invalid rotation");
+    private void rotateRight(char currentDirection) {
+        switch (currentDirection) {
+            case NORTH -> this.direction = EAST;
+            case WEST -> this.direction = NORTH;
+            case SOUTH -> this.direction = WEST;
+            case EAST -> this.direction = SOUTH;
+            default -> throw new IllegalArgumentException("Invalid rotation");
         }
     }
 
