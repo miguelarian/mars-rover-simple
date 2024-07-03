@@ -4,6 +4,7 @@ import static com.miguelvela.Direction.*;
 
 public class Position {
     private static final int MAX_NORTH_COORDINATE = 10;
+    private static final int MAX_EAST_COORDINATE = 10;
 
     private int X;
     private int Y;
@@ -37,6 +38,9 @@ public class Position {
     }
 
     public static Position moveEast(Position position) {
+        if((position.X + 1) == MAX_EAST_COORDINATE) {
+            return new Position(0, position.Y);
+        }
         return new Position(position.X + 1, position.Y);
     }
 
