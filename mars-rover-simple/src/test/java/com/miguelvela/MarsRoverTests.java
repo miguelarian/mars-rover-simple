@@ -2,6 +2,7 @@ package com.miguelvela;
 
 import org.junit.jupiter.api.Test;
 
+import static com.miguelvela.Direction.North;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MarsRoverTests {
@@ -85,14 +86,14 @@ public class MarsRoverTests {
 
     @Test
     public void Execute_MoveForwardSouth_ReturnsNextSouthPosition() {
-        MarsRover rover = new MarsRover(5,5, 'N');
+        MarsRover rover = new MarsRover(5,5, North());
         String result = rover.Execute("RRM");
         assertEquals("5:4:S", result);
     }
 
     @Test
     public void Execute_MoveForwardWest_ReturnsNextWestPosition() {
-        MarsRover rover = new MarsRover(5,5, 'N');
+        MarsRover rover = new MarsRover(5,5, North());
         String result = rover.Execute("LM");
         assertEquals("4:5:W", result);
     }
@@ -119,6 +120,6 @@ public class MarsRoverTests {
 
         assertEquals(0, rover.getXCoordinate());
         assertEquals(0, rover.getYCoordinate());
-        assertEquals(MarsRover.NORTH, rover.getDirection());
+        assertEquals(North(), rover.getDirection());
     }
 }

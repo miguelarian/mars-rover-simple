@@ -1,15 +1,12 @@
 package com.miguelvela;
 
+import static com.miguelvela.Direction.*;
+
 public class MarsRover
 {
-    public static final char NORTH = 'N';
-    public static final char SOUTH = 'S';
-    public static final char EAST = 'E';
-    public static final char WEST = 'W';
-
     private int XCoordinate;
     private int YCoordinate;
-    private char direction;
+    private Direction direction;
 
     public int getXCoordinate() {
         return XCoordinate;
@@ -19,17 +16,17 @@ public class MarsRover
         return YCoordinate;
     }
 
-    public char getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
     public MarsRover() {
         this.XCoordinate = 0;
         this.YCoordinate = 0;
-        this.direction = NORTH;
+        this.direction = Direction.North();
     }
 
-    public MarsRover(int XCoordinate, int YCoordinate, char direction) {
+    public MarsRover(int XCoordinate, int YCoordinate, Direction direction) {
         this.XCoordinate = XCoordinate;
         this.YCoordinate = YCoordinate;
         this.direction = direction;
@@ -40,8 +37,8 @@ public class MarsRover
         for (char inputAction : command.toCharArray()) {
             Action action = Action.fromValue(inputAction);
             switch (action) {
-                case ROTATE_RIGHT -> rotateRight(this.direction);
-                case ROTATE_LEFT -> rotateLeft(this.direction);
+                case ROTATE_RIGHT -> rotateRight();
+                case ROTATE_LEFT -> rotateLeft();
                 case MOVE -> move();
                 default -> throw new IllegalArgumentException("Invalid action");
             }
@@ -50,7 +47,7 @@ public class MarsRover
     }
 
     private void move() {
-        switch (this.direction) {
+        switch (this.direction.getValue()) {
             case NORTH -> this.YCoordinate++;
             case EAST -> this.XCoordinate++;
             case SOUTH -> this.YCoordinate--;
@@ -58,22 +55,22 @@ public class MarsRover
         }
     }
 
-    private void rotateLeft(char currentDirection) {
-        switch (currentDirection) {
-            case NORTH -> this.direction = WEST;
-            case WEST -> this.direction = SOUTH;
-            case SOUTH -> this.direction = EAST;
-            case EAST -> this.direction = NORTH;
+    private void rotateLeft() {
+        switch (this.direction.getValue()) {
+            case NORTH -> this.direction = West();
+            case WEST -> this.direction = South();
+            case SOUTH -> this.direction = East();
+            case EAST -> this.direction = North();
             default -> throw new IllegalArgumentException("Invalid rotation");
         }
     }
 
-    private void rotateRight(char currentDirection) {
-        switch (currentDirection) {
-            case NORTH -> this.direction = EAST;
-            case WEST -> this.direction = NORTH;
-            case SOUTH -> this.direction = WEST;
-            case EAST -> this.direction = SOUTH;
+    private void rotateRight() {
+        switch (this.direction.getValue()) {
+            case NORTH -> this.direction = East();
+            case WEST -> this.direction = North();
+            case SOUTH -> this.direction = West();
+            case EAST -> this.direction = South();
             default -> throw new IllegalArgumentException("Invalid rotation");
         }
     }
