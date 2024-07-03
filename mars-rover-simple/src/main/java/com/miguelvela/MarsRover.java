@@ -26,17 +26,11 @@ public class MarsRover
 
         for (char action : command.toCharArray()) {
 
-            if (action == 'R') {
-                this.direction = rotateRight(this.direction);
-            }
-            else if (action == 'L') {
-                this.direction = rotateLeft(this.direction);
-            }
-            else if (action == 'M') {
-                move();
-            }
-            else {
-                throw new IllegalArgumentException("Invalid action");
+            switch (action) {
+                case 'R' -> this.direction = rotateRight(this.direction);
+                case 'L' -> this.direction = rotateLeft(this.direction);
+                case 'M' -> move();
+                default -> throw new IllegalArgumentException("Invalid action");
             }
         }
 
