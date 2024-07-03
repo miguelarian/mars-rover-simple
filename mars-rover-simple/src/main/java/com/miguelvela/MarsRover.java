@@ -6,10 +6,10 @@ public class MarsRover
     private final int INITIAL_Y_COORDINATE = 0;
     private final int INITIAL_DIRECTION = 'N';
 
-    private final char NORTH = 'N';
-    private final char SOUTH = 'S';
-    private final char EAST = 'E';
-    private final char WEST = 'W';
+    public static final char NORTH = 'N';
+    public static char SOUTH = 'S';
+    public static char EAST = 'E';
+    public static char WEST = 'W';
 
     private enum Action {
         ROTATE_RIGHT('R'),
@@ -30,6 +30,18 @@ public class MarsRover
             }
             throw new IllegalArgumentException("Invalid action");
         }
+    }
+
+    public int getXCoordinate() {
+        return XCoordinate;
+    }
+
+    public int getYCoordinate() {
+        return YCoordinate;
+    }
+
+    public char getDirection() {
+        return direction;
     }
 
     private int XCoordinate;

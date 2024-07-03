@@ -112,4 +112,13 @@ public class MarsRoverTests {
     void ToString_WithInitialPosition_FormatIsCorrect() {
         assertEquals("0:0:N", new MarsRover().toString());
     }
+
+    @Test
+    void NewRover_WithInitialPosition_PositionIsCorrect() {
+        MarsRover rover = new MarsRover();
+
+        assertEquals(0, rover.getXCoordinate());
+        assertEquals(0, rover.getYCoordinate());
+        assertEquals(MarsRover.NORTH, rover.getDirection());
+    }
 }
