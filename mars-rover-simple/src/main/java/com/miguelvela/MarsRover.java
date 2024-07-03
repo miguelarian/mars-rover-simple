@@ -1,34 +1,24 @@
 package com.miguelvela;
 
 import static com.miguelvela.Direction.*;
+import static com.miguelvela.Position.move;
 
 public class MarsRover
 {
-    private int XCoordinate;
-    private int YCoordinate;
+    private Position position;
     private Direction direction;
-
-    public int getXCoordinate() {
-        return XCoordinate;
-    }
-
-    public int getYCoordinate() {
-        return YCoordinate;
-    }
 
     public Direction getDirection() {
         return direction;
     }
 
     public MarsRover() {
-        this.XCoordinate = 0;
-        this.YCoordinate = 0;
+        this.position = Position.StartPosition();
         this.direction = Direction.North();
     }
 
     public MarsRover(int XCoordinate, int YCoordinate, Direction direction) {
-        this.XCoordinate = XCoordinate;
-        this.YCoordinate = YCoordinate;
+        this.position = Position.CustomPosition(XCoordinate, YCoordinate);
         this.direction = direction;
     }
 
@@ -39,24 +29,23 @@ public class MarsRover
             switch (action) {
                 case ROTATE_RIGHT -> this.direction = rotateRight(this.direction);
                 case ROTATE_LEFT -> this.direction = rotateLeft(this.direction);
-                case MOVE -> move();
+                case MOVE -> this.position = move(this.position, this.direction);
                 default -> throw new IllegalArgumentException("Invalid action");
             }
         }
         return this.toString();
     }
 
-    private void move() {
-        switch (this.direction.getValue()) {
-            case NORTH -> this.YCoordinate++;
-            case EAST -> this.XCoordinate++;
-            case SOUTH -> this.YCoordinate--;
-            case WEST -> this.XCoordinate--;
-        }
-    }
-
     @Override
     public String toString() {
-        return this.XCoordinate + ":" + this.YCoordinate + ":" + this.direction;
+        return this.position + ":" + this.direction;
+    }
+
+    public int getXCoordinate() {
+        return this.position.getX();
+    }
+
+    public int getYCoordinate() {
+        return this.position.getY();
     }
 }
