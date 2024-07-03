@@ -35,25 +35,29 @@ public class MarsRover
             }
 
             if (action == 'M') {
-                if (this.direction == 'N') {
-                    this.YCoordinate++;
-                }
-
-                if (this.direction == 'E') {
-                    this.XCoordinate++;
-                }
-
-                if (this.direction == 'S') {
-                    this.YCoordinate--;
-                }
-
-                if (this.direction == 'W') {
-                    this.XCoordinate--;
-                }
+                move();
             }
         }
 
         return this.printPosition();
+    }
+
+    private void move() {
+        if (this.direction == 'N') {
+            this.YCoordinate++;
+        }
+
+        if (this.direction == 'E') {
+            this.XCoordinate++;
+        }
+
+        if (this.direction == 'S') {
+            this.YCoordinate--;
+        }
+
+        if (this.direction == 'W') {
+            this.XCoordinate--;
+        }
     }
 
     private char rotateLeft(char currentPosition) {
