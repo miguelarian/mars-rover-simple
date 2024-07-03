@@ -2,8 +2,7 @@ package com.miguelvela;
 
 import org.junit.jupiter.api.Test;
 
-import static com.miguelvela.Direction.East;
-import static com.miguelvela.Direction.North;
+import static com.miguelvela.Direction.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MarsRoverTests {
@@ -136,5 +135,12 @@ public class MarsRoverTests {
         MarsRover rover = new MarsRover(9,0, East());
         String result = rover.Execute("M");
         assertEquals("0:0:E", result);
+    }
+
+    @Test
+    void Execute_WithSouthOverTheEdge_ReturnsInitialPosition() {
+        MarsRover rover = new MarsRover(0,0, South());
+        String result = rover.Execute("M");
+        assertEquals("0:9:S", result);
     }
 }

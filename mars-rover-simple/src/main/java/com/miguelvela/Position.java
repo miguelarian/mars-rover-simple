@@ -6,6 +6,7 @@ public class Position {
     private static final int MAX_NORTH_COORDINATE = 10;
     private static final int MAX_EAST_COORDINATE = 10;
 
+
     private int X;
     private int Y;
 
@@ -45,6 +46,9 @@ public class Position {
     }
 
     public static Position moveSouth(Position position) {
+        if((position.Y - 1) == -1) {
+            return new Position(position.X, MAX_NORTH_COORDINATE - 1);
+        }
         return new Position(position.X, position.Y - 1);
     }
 
