@@ -17,6 +17,16 @@ public class MarsRover
             if (action == 'L') {
                 this.direction = rotateLeft(this.direction);
             }
+
+            if (action == 'M') {
+                if (this.direction == 'N') {
+                    this.YCoordinate++;
+                }
+
+                if (this.direction == 'E') {
+                    this.XCoordinate++;
+                }
+            }
         }
 
         return this.printPosition();

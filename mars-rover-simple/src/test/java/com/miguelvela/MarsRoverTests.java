@@ -68,4 +68,18 @@ public class MarsRoverTests {
         String result = rover.Execute("RRRR");
         assertEquals("0:0:N", result);
     }
+
+    @Test
+    public void Execute_MoveForwardNorth_ReturnsNorthPosition() {
+        MarsRover rover = new MarsRover();
+        String result = rover.Execute("M");
+        assertEquals("0:1:N", result);
+    }
+
+    @Test
+    public void Execute_MoveForwardEast_ReturnsNextEastPosition() {
+        MarsRover rover = new MarsRover();
+        String result = rover.Execute("RM");
+        assertEquals("1:0:E", result);
+    }
 }
