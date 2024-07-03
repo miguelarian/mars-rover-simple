@@ -83,17 +83,17 @@ public class MarsRover
         }
     }
 
-    private char rotateLeft(char currentPosition) {
-        if (currentPosition == NORTH) {
+    private char rotateLeft(char currentDirection) {
+        if (currentDirection == NORTH) {
             return WEST;
         }
-        else if(currentPosition == WEST) {
+        else if(currentDirection == WEST) {
             return SOUTH;
         }
-        else if(currentPosition == SOUTH) {
+        else if(currentDirection == SOUTH) {
             return EAST;
         }
-        else if(currentPosition == EAST) {
+        else if(currentDirection == EAST) {
             return NORTH;
         }
         else {
@@ -101,17 +101,17 @@ public class MarsRover
         }
     }
 
-    private char rotateRight(char currentPosition) throws IllegalArgumentException {
-        if (currentPosition == NORTH) {
+    private char rotateRight(char currentDirection) throws IllegalArgumentException {
+        if (currentDirection == NORTH) {
             return EAST;
         }
-        else if(currentPosition == EAST) {
+        else if(currentDirection == EAST) {
             return SOUTH;
         }
-        else if(currentPosition == SOUTH) {
+        else if(currentDirection == SOUTH) {
             return WEST;
         }
-        else if(currentPosition == WEST) {
+        else if(currentDirection == WEST) {
             return NORTH;
         }
         else {
