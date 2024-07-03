@@ -96,4 +96,15 @@ public class MarsRoverTests {
         String result = rover.Execute("LM");
         assertEquals("4:5:W", result);
     }
+
+    @Test
+    void Execute_InvalidAction_ThrowsIllegalArgumentException() {
+        MarsRover rover = new MarsRover();
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            rover.Execute("XXX");
+        });
+
+        assertEquals("Invalid action", exception.getMessage());
+    }
 }

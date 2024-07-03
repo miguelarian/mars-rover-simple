@@ -29,13 +29,14 @@ public class MarsRover
             if (action == 'R') {
                 this.direction = rotateRight(this.direction);
             }
-
-            if (action == 'L') {
+            else if (action == 'L') {
                 this.direction = rotateLeft(this.direction);
             }
-
-            if (action == 'M') {
+            else if (action == 'M') {
                 move();
+            }
+            else {
+                throw new IllegalArgumentException("Invalid action");
             }
         }
 
