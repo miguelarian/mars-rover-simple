@@ -150,4 +150,11 @@ public class MarsRoverTests {
         String result = rover.Execute("M");
         assertEquals("9:0:W", result);
     }
+
+    @Test
+    void Execute_MoveInCircle_ReturnsInitialPosition() {
+        MarsRover rover = new MarsRover();
+        String result = rover.Execute("MMMMRMMMMRMMMMRMMMMR");
+        assertEquals("0:0:N", result);
+    }
 }
