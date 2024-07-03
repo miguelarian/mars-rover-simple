@@ -11,27 +11,6 @@ public class MarsRover
     public static final char EAST = 'E';
     public static final char WEST = 'W';
 
-    private enum Action {
-        ROTATE_RIGHT('R'),
-        ROTATE_LEFT('L'),
-        MOVE('M');
-
-        private char value;
-
-        Action(char action) {
-            this.value = action;
-        }
-
-        public static Action fromValue(char value) {
-            for (Action action : Action.values()) {
-                if (action.value == value) {
-                    return action;
-                }
-            }
-            throw new IllegalArgumentException("Invalid action");
-        }
-    }
-
     public int getXCoordinate() {
         return XCoordinate;
     }
