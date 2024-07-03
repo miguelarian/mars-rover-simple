@@ -75,20 +75,11 @@ public class MarsRover
     }
 
     private void move() {
-        if (this.direction == NORTH) {
-            this.YCoordinate++;
-        }
-
-        if (this.direction == EAST) {
-            this.XCoordinate++;
-        }
-
-        if (this.direction == SOUTH) {
-            this.YCoordinate--;
-        }
-
-        if (this.direction == WEST) {
-            this.XCoordinate--;
+        switch (this.direction) {
+            case NORTH -> this.YCoordinate++;
+            case EAST -> this.XCoordinate++;
+            case SOUTH -> this.YCoordinate--;
+            case WEST -> this.XCoordinate--;
         }
     }
 
