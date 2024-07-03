@@ -143,4 +143,11 @@ public class MarsRoverTests {
         String result = rover.Execute("M");
         assertEquals("0:9:S", result);
     }
+
+    @Test
+    void Execute_WithWestOverTheEdge_ReturnsInitialPosition() {
+        MarsRover rover = new MarsRover(0,0, West());
+        String result = rover.Execute("M");
+        assertEquals("9:0:W", result);
+    }
 }

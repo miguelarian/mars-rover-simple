@@ -53,6 +53,9 @@ public class Position {
     }
 
     public static Position moveWest(Position position) {
+        if((position.X - 1) == -1) {
+            return new Position(MAX_EAST_COORDINATE - 1, position.Y);
+        }
         return new Position(position.X - 1, position.Y);
     }
 
