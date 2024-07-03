@@ -11,6 +11,10 @@ public class MarsRover
     public static final char EAST = 'E';
     public static final char WEST = 'W';
 
+    private int XCoordinate;
+    private int YCoordinate;
+    private char direction;
+
     public int getXCoordinate() {
         return XCoordinate;
     }
@@ -22,10 +26,6 @@ public class MarsRover
     public char getDirection() {
         return direction;
     }
-
-    private int XCoordinate;
-    private int YCoordinate;
-    private char direction;
 
     public MarsRover() {
         this.XCoordinate = INITIAL_X_COORDINATE;
