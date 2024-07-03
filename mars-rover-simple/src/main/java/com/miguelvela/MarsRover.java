@@ -37,8 +37,8 @@ public class MarsRover
         for (char inputAction : command.toCharArray()) {
             Action action = Action.fromValue(inputAction);
             switch (action) {
-                case ROTATE_RIGHT -> rotateRight();
-                case ROTATE_LEFT -> rotateLeft();
+                case ROTATE_RIGHT -> this.direction = rotateRight(this.direction);
+                case ROTATE_LEFT -> this.direction = rotateLeft(this.direction);
                 case MOVE -> move();
                 default -> throw new IllegalArgumentException("Invalid action");
             }
@@ -52,26 +52,6 @@ public class MarsRover
             case EAST -> this.XCoordinate++;
             case SOUTH -> this.YCoordinate--;
             case WEST -> this.XCoordinate--;
-        }
-    }
-
-    private void rotateLeft() {
-        switch (this.direction.getValue()) {
-            case NORTH -> this.direction = West();
-            case WEST -> this.direction = South();
-            case SOUTH -> this.direction = East();
-            case EAST -> this.direction = North();
-            default -> throw new IllegalArgumentException("Invalid rotation");
-        }
-    }
-
-    private void rotateRight() {
-        switch (this.direction.getValue()) {
-            case NORTH -> this.direction = East();
-            case WEST -> this.direction = North();
-            case SOUTH -> this.direction = West();
-            case EAST -> this.direction = South();
-            default -> throw new IllegalArgumentException("Invalid rotation");
         }
     }
 

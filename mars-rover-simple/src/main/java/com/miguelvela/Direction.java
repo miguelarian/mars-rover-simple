@@ -34,6 +34,27 @@ public class Direction {
         return value;
     }
 
+    public static Direction rotateLeft(Direction direction) {
+        return switch (direction.getValue()) {
+            case NORTH -> West();
+            case WEST -> South();
+            case SOUTH -> East();
+            case EAST -> North();
+            default -> throw new IllegalArgumentException("Invalid rotation");
+        };
+    }
+
+    public static Direction rotateRight(Direction direction) {
+        return switch (direction.getValue()) {
+            case NORTH -> East();
+            case WEST -> North();
+            case SOUTH ->West();
+            case EAST -> South();
+            default -> throw new IllegalArgumentException("Invalid rotation");
+        };
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
