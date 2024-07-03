@@ -3,6 +3,8 @@ package com.miguelvela;
 import static com.miguelvela.Direction.*;
 
 public class Position {
+    private static final int MAX_NORTH_COORDINATE = 10;
+
     private int X;
     private int Y;
 
@@ -28,6 +30,9 @@ public class Position {
     }
 
     public static Position moveNorth(Position position) {
+        if((position.Y + 1) == MAX_NORTH_COORDINATE) {
+            return new Position(position.X, 0);
+        }
         return new Position(position.X, position.Y + 1);
     }
 

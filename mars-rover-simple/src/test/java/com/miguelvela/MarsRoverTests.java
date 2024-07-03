@@ -122,4 +122,11 @@ public class MarsRoverTests {
         assertEquals(0, rover.getYCoordinate());
         assertEquals(North(), rover.getDirection());
     }
+
+    @Test
+    void Execute_WithNorthOverTheEdge_ReturnsInitialPosition() {
+        MarsRover rover = new MarsRover(0,9, North());
+        String result = rover.Execute("M");
+        assertEquals("0:0:N", result);
+    }
 }
