@@ -107,4 +107,9 @@ public class MarsRoverTests {
 
         assertEquals("Invalid action", exception.getMessage());
     }
+
+    @Test
+    void ToString_WithInitialPosition_FormatIsCorrect() {
+        assertEquals("0:0:N", new MarsRover().toString());
+    }
 }
