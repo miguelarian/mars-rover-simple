@@ -42,6 +42,14 @@ public class MarsRover
                 if (this.direction == 'E') {
                     this.XCoordinate++;
                 }
+
+                if (this.direction == 'S') {
+                    this.YCoordinate--;
+                }
+
+                if (this.direction == 'W') {
+                    this.XCoordinate--;
+                }
             }
         }
 
